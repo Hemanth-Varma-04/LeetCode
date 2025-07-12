@@ -3,13 +3,18 @@ class Solution {
         if(s.length()!=t.length()){
             return false;
         }
-        //converting strings to arrays
-        char[]sArr = s.toCharArray();
-        char[]tArr = t.toCharArray();
-        //sorting the array
-        Arrays.sort(sArr);
-        Arrays.sort(tArr);
-        //comparing sorted array
-        return Arrays.equals(sArr,tArr);
+        int count[] = new int[26];
+        for(int i=0;i<s.length();i++){
+            count[s.charAt(i)-'a']++;
+        }
+        for(int i=0;i<t.length();i++){
+            count[t.charAt(i)-'a']--;
+        }
+        for(int i=0;i<count.length;i++){
+        if(count[i]!=0){
+            return false;
+        }
+        }
+        return true;
     }
 }
