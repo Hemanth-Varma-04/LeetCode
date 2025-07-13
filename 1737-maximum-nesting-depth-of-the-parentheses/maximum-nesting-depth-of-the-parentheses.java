@@ -5,7 +5,10 @@ class Solution {
         for(int i=0;i<s.length();i++){
             if(s.charAt(i)=='('){
                 current++;
-                res = Math.max(res,current);
+               int temp = current;
+               if(temp>res){
+                res = temp;
+               }
             }
             if(s.charAt(i)==')'){
                 current--;
